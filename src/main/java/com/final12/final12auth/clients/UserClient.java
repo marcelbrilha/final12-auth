@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.final12.final12auth.entities.User;
 
 @Component
-@FeignClient(name = "final12-user", path = "/api/v1")
+@FeignClient(name = "final12-user", url = "${app.final12-user.url}")
 public interface UserClient {
 
-	@GetMapping(value = "/users")
+	@GetMapping(value = "/api/v1/users")
 	ResponseEntity<User> findByEmail(@RequestParam String email);
 }
